@@ -1,2 +1,2 @@
 # fcgqcnn
-Fully-Convolutional version of GQ-CNN
+gh-pages repo for fully-convolutional gqcnn
