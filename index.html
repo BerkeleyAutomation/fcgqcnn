@@ -16,6 +16,7 @@
   <body>
 
     <div class="wrapper">
+<!--
       <header>
         <h1 class="header">FC-GQ-CNN</h1>
         
@@ -33,16 +34,24 @@
 
 
       </header>
+-->
+      <header>
+        <p class="header">
+        <a class ="header name" href="#summary"><font size="4">Summary</font><a></p>
+        <a class = "header name" href="#publications"><font size="4">Publications</font><a></p>
+	<a class = "header name" href="#code"><font size="4">Code</font><a></p>
+	<a class = "header name" href="#support-or-contact"><font size="4">Contact</font><a></p>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/BerkeleyAutomation">BerkeleyAutomation</a></p>
+      </header>
       <section>
 
-<a name="synthesis"></a>
 <h2>
 <a id="On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks" class="anchor" href="On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks" aria-hidden="true"><span class="octicon octicon-link"></span></a>On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks</h2>
 
-<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/grasp_action_spaces.png"><figcaption>Fig. 1. Grasp action spaces used to guide synthetic data collection for training robust robot grasping policies. The Dexterity Network 2.0~\cite{mahler2017dex} uses 3D antipodal parallel-jaw grasp actions sampled from object models for training (left), and ranks 2D antipodal grasps sampled from depth images during online policy evaluation (middle), which can diminish performance due to covariate shift. We propose to instead collect training data from the policy's action space by sampling grasps based on synthetic observations.
-    We train a novel rapid robot policy based on Fully Convolutional Grasp Quality Neural Networks (FC-GQ-CNNs) using a dense discretization of a 4-DOF grasp action space (3D position and planar orientation) within an object segmask (right).</figcaption></p>
+<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/grasp_action_spaces.png"><figcaption>Fig. 1. Grasp action spaces used to guide synthetic data collection for training robust robot grasping policies. The Dexterity Network 2.0<sup><a href="#fn1" id="ref1">1</a></sup> uses 3D antipodal parallel-jaw grasp actions sampled from object models for training (left), and ranks 2D antipodal grasps sampled from depth images during online policy evaluation (middle), which can diminish performance due to covariate shift. We propose to instead collect training data from the policy's action space by sampling grasps based on synthetic observations.
+    We train a novel rapid robot policy based on Fully-Convolutional Grasp Quality Neural Networks (FC-GQ-CNNs) using a dense discretization of a 4-DOF grasp action space (3D position and planar orientation) within an object segmask (right).</figcaption></p>
 
-<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/fcgqcnn_policy.png"><figcaption>Fig. 2. Architecture for a grasping policy based on a Fully Convolutional Grasp Quality CNN (FC-GQ-CNN). (Top) Evaluation of depth image using the FC-GQ-CNN. On the right we can see the dense 4-DOF output. Note the convolutional layers in the latter half of the network (highlighted in blue), which were trained as fully-connected layers but converted to convolutional layers during inference time. (Bottom) Given a full-size depth image, the policy evaluates the FC-GQ-CNN and takes the argmax to return the highest-quality grasp, highlighted in red in the 4-DOF FC-GQ-CNN output.</figcaption></p>
+<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/fcgqcnn_policy.png"><figcaption>Fig. 2. Architecture for a grasping policy based on a Fully-Convolutional Grasp Quality CNN (FC-GQ-CNN). (Top) Evaluation of depth image using the FC-GQ-CNN. On the right we can see the dense 4-DOF output. Note the convolutional layers in the latter half of the network (highlighted in blue), which were trained as fully-connected layers but converted to convolutional layers at inference time. (Bottom) Given a depth image, the policy evaluates the FC-GQ-CNN and takes the argmax to return the highest-quality grasp, highlighted in red in the 4-DOF FC-GQ-CNN output.</figcaption></p>
 
 <h3>
 <a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
@@ -52,15 +61,21 @@ A promising approach is to learn deep policies from synthetic training datasets 
 In this paper, we explore the effect of the distribution of synthetic training examples on the rate and reliability of the learned robot policy. 
 To increase rate and reliability, we propose a synthetic data sampling distribution that combines grasps sampled from the policy action set with guiding samples from a robust grasping supervisor that has full state knowledge.
 We use this to train a robot policy based on a novel fully-convolutional network architecture that evaluates millions of 4-DOF grasp candidates (3D position and planar orientation) in parallel to maximize grasp quality.
-In physical robot experiments, we find that the Fully-Convolutional Grasp Quality CNN (FC-GQ-CNN) policy is able to achieve up to 296 mean picks per hour (MPPH) compared to 250 MPPH for policies based on iterative grasp sampling and evaluation. We perform sensitivity experiments to study the relationship between the granularity of the policy action space and performance.</p>
+In physical robot experiments, we find that the Fully-Convolutional Grasp Quality CNN (FC-GQ-CNN) policy is able to achieve up to <span style="font-weight:bold">296 mean picks per hour (MPPH)</span> compared to 250 MPPH for policies based on iterative grasp sampling and evaluation. We perform sensitivity experiments to study the relationship between the granularity of the policy action space and performance.</p>
 
 <h3>
 <a id="publications" class="anchor" href="#publications" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publications</h3>
 
 <ul>
 <li>On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies Based on Fully-Convolutional Neural Networks
-Vishal Satish, Jeffrey Mahler, Ken Goldberg. [<a href="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/docs/on_policy_dataset_synth_fcgqcnn.pdf">PDF</a>] [<a href="https://github.com/BerkeleyAutomation/caging/tree/gh-pages/code">Code</a>] [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/data.zip">Data</a>]</li>
+Vishal Satish, Jeffrey Mahler, Ken Goldberg. [<a href="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/docs/on_policy_dataset_synth_fcgqcnn.pdf">PDF</a>]</li>
 </ul>
+
+<h3>
+<a id="code" class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h3>
+
+<p>The synthetic dataset used in the paper for physical robot experiments on novel objects in clutter can be found [<a href="https://berkeley.app.box.com/s/6mnb2bzi5zfa7qpwyn7uq5atb7vbztng">here</a>].
+Instructions for training an FC-GQ-CNN on this dataset and deploying it on sample test images can be found [<a href="https://docs.google.com/document/d/1--cvrPrP3Bsn1akzyT1gBOzl_ofrBZFZiq7KiVdXwIA/edit?usp=sharing">here</a>].</p>
 
 <h2>
 <a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h3>
@@ -71,11 +86,15 @@ Vishal Satish, Jeffrey Mahler, Ken Goldberg. [<a href="https://github.com/Berkel
 <h2>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
-<p>Please contact Vishal Satish at <a href="mailto:vsatish@berkeley.edu">vsatish@berkeley.edu</a> or <a href="goldberg.berkeley.edu">Prof. Ken Goldberg</a>, Director of the Berkeley AUTOLAB at <a href="mailto:goldberg@berkeley.edu">goldberg@berkeley.edu</a></p>
+<p>Please contact Vishal Satish at <a href="mailto:vsatish@berkeley.edu">vsatish@berkeley.edu</a> or <a href="goldberg.berkeley.edu">Prof. Ken Goldberg</a>, Director of the Berkeley AUTOLAB, at <a href="mailto:goldberg@berkeley.edu">goldberg@berkeley.edu</a></p>
 
 <hr>
 
-<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a><br>The Fully-Convolutional GQ-CNN website, by <a href="http://autolab.berkeley.edu/">the Berkeley AUTOLAB</a>, is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a><br>This website, created by <a href="http://autolab.berkeley.edu/">the Berkeley AUTOLAB</a>, is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+<hr>
+<sup id="fn1">1. Mahler,  J.  Liang,  S.  Niyaz,  M.  Laskey,  R.  Doan,  X.  Liu,  J.  A.Ojea,  and  K.  Goldberg,  “Dex-net  2.0:  Deep  learning  to  plan  robustgrasps with synthetic point clouds and analytic grasp metrics,” Robotics: Science and Systems (RSS), 2017.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
+
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
@@ -93,6 +112,6 @@ Vishal Satish, Jeffrey Mahler, Ken Goldberg. [<a href="https://github.com/Berkel
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
   </body>
+
 </html>
