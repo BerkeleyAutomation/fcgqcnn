@@ -39,12 +39,10 @@
 <h2>
 <a id="On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks" class="anchor" href="On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks" aria-hidden="true"><span class="octicon octicon-link"></span></a>On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks</h2>
 
-<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/grasp_action_spaces.png"><figcaption>Fig. 2. Persistence diagram for ranking energy-bounded cages. Left: polygonal part and gripper polygons serve as
-input. We sample object poses X in collision and generate an alpha-shape representation (shown in gray in the three
-middle figures). Given an energy potential, we insert simplices in D(X)-A(X) in decreasing order of energy
-potential, creating a filtration of simplicial complexes. Voids (yellow and orange) are born with the addition of edges (red) at threshold energy levels, and die with the additions of the last triangle in the void (red). The associated second persistence diagram (right figure)
-reveals cages with large persistence corresponding to energy-bounded cages with high escape energy. In particular, configuration
-q_1 is identified as more persistent (and therefore with higher escape energy) than configuration q_2.</figcaption></p>
+<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/grasp_action_spaces.png"><figcaption>Fig. 1. Grasp action spaces used to guide synthetic data collection for training robust robot grasping policies. The Dexterity Network 2.0~\cite{mahler2017dex} uses 3D antipodal parallel-jaw grasp actions sampled from object models for training (left), and ranks 2D antipodal grasps sampled from depth images during online policy evaluation (middle), which can diminish performance due to covariate shift. We propose to instead collect training data from the policy's action space by sampling grasps based on synthetic observations.
+    We train a novel rapid robot policy based on Fully Convolutional Grasp Quality Neural Networks (FC-GQ-CNNs) using a dense discretization of a 4-DOF grasp action space (3D position and planar orientation) within an object segmask (right).</figcaption></p>
+
+<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/fcgqcnn_policy.png"><figcaption>Fig. 2. Architecture for a grasping policy based on a Fully Convolutional Grasp Quality CNN (FC-GQ-CNN). (Top) Evaluation of depth image using the FC-GQ-CNN. On the right we can see the dense 4-DOF output. Note the convolutional layers in the latter half of the network (highlighted in blue), which were trained as fully-connected layers but converted to convolutional layers during inference time. (Bottom) Given a full-size depth image, the policy evaluates the FC-GQ-CNN and takes the argmax to return the highest-quality grasp, highlighted in red in the 4-DOF FC-GQ-CNN output.</figcaption></p>
 
 <h3>
 <a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
@@ -61,7 +59,7 @@ In physical robot experiments, we find that the Fully-Convolutional Grasp Qualit
 
 <ul>
 <li>On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies Based on Fully-Convolutional Neural Networks
-Vishal Satish, Jeffrey Mahler, Ken Goldberg. [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/docs/wafr2016_caging.pdf">PDF</a>] [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/docs/wafr2016_caging_supplement.pdf">Supplementary File</a>] [<a href="https://github.com/BerkeleyAutomation/caging/tree/gh-pages/code">Code</a>] [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/data.zip">Data</a>]</li>
+Vishal Satish, Jeffrey Mahler, Ken Goldberg. [<a href="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/docs/on_policy_dataset_synth_fcgqcnn.pdf">PDF</a>] [<a href="https://github.com/BerkeleyAutomation/caging/tree/gh-pages/code">Code</a>] [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/data.zip">Data</a>]</li>
 </ul>
 
 <h2>
