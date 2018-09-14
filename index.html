@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fully-Convolutional GQ-CNN by BerkeleyAutomation</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <header>
+        <h1 class="header">FC-GQ-CNN</h1>
+        
+        <p class="header">
+        <a class ="header name" href="#synthesis">Synthesis Paper<a>
+        <a class = "header name" href="#analysis">Analysis Paper<a></p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/BerkeleyAutomation/caging/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/BerkeleyAutomation/caging/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/BerkeleyAutomation/caging">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/BerkeleyAutomation">BerkeleyAutomation</a></p>
+
+
+      </header>
+      <section>
+
+<a name="synthesis"></a>
+<h2>
+<a id="On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks" class="anchor" href="On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks" aria-hidden="true"><span class="octicon octicon-link"></span></a>On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies based on Fully-Convolutional Grasp Quality Neural Networks</h2>
+
+<p><img src="https://github.com/BerkeleyAutomation/fcgqcnn/raw/gh-pages/images/grasp_action_spaces.png"><figcaption>Fig. 2. Persistence diagram for ranking energy-bounded cages. Left: polygonal part and gripper polygons serve as
+input. We sample object poses X in collision and generate an alpha-shape representation (shown in gray in the three
+middle figures). Given an energy potential, we insert simplices in D(X)-A(X) in decreasing order of energy
+potential, creating a filtration of simplicial complexes. Voids (yellow and orange) are born with the addition of edges (red) at threshold energy levels, and die with the additions of the last triangle in the void (red). The associated second persistence diagram (right figure)
+reveals cages with large persistence corresponding to energy-bounded cages with high escape energy. In particular, configuration
+q_1 is identified as more persistent (and therefore with higher escape energy) than configuration q_2.</figcaption></p>
+
+<h3>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
+
+<p>Rapid and reliable robot grasping for a diverse set of objects has applications from home de-cluttering to warehouse automation.
+A promising approach is to learn deep policies from synthetic training datasets of point clouds, grasps, and rewards sampled using analytic models along with stochastic noise models for domain randomization.
+In this paper, we explore the effect of the distribution of synthetic training examples on the rate and reliability of the learned robot policy. 
+To increase rate and reliability, we propose a synthetic data sampling distribution that combines grasps sampled from the policy action set with guiding samples from a robust grasping supervisor that has full state knowledge.
+We use this to train a robot policy based on a novel fully-convolutional network architecture that evaluates millions of 4-DOF grasp candidates (3D position and planar orientation) in parallel to maximize grasp quality.
+In physical robot experiments, we find that the Fully-Convolutional Grasp Quality CNN (FC-GQ-CNN) policy is able to achieve up to 296 mean picks per hour (MPPH) compared to 250 MPPH for policies based on iterative grasp sampling and evaluation. We perform sensitivity experiments to study the relationship between the granularity of the policy action space and performance.</p>
+
+<h3>
+<a id="publications" class="anchor" href="#publications" aria-hidden="true"><span class="octicon octicon-link"></span></a>Publications</h3>
+
+<ul>
+<li>On-Policy Dataset Synthesis for Learning Deep Robot Grasping Policies Based on Fully-Convolutional Neural Networks
+Vishal Satish, Jeffrey Mahler, Ken Goldberg. [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/docs/wafr2016_caging.pdf">PDF</a>] [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/docs/wafr2016_caging_supplement.pdf">Supplementary File</a>] [<a href="https://github.com/BerkeleyAutomation/caging/tree/gh-pages/code">Code</a>] [<a href="https://github.com/BerkeleyAutomation/caging/raw/gh-pages/data.zip">Data</a>]</li>
+</ul>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h3>
+
+<p>These are ongoing projects at UC Berkeley with contributions from:<br>
+<a href="http://www.linkedin.com/in/vishal-satish">Vishal Satish</a>, <a href="http://www.jeff-mahler.com">Jeffrey Mahler</a>, <a href="http://goldberg.berkeley.edu">Ken Goldberg</a></p>
+
+<h2>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Please contact Vishal Satish at <a href="mailto:vsatish@berkeley.edu">vsatish@berkeley.edu</a> or <a href="goldberg.berkeley.edu">Prof. Ken Goldberg</a>, Director of the Berkeley AUTOLAB at <a href="mailto:goldberg@berkeley.edu">goldberg@berkeley.edu</a></p>
+
+<hr>
+
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a><br>The Fully-Convolutional GQ-CNN website, by <a href="http://autolab.berkeley.edu/">the Berkeley AUTOLAB</a>, is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-71985069-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
